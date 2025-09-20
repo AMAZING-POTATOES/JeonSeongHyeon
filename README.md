@@ -1,4 +1,4 @@
-# Spring Boot Practice Repository
+# Spring Boot Practice Repository(2022041053_전성현_소프트웨어학부)
 
 **이 레퍼지토리는 스프링 부트 실습을 저장하는 곳입니다.**
 
