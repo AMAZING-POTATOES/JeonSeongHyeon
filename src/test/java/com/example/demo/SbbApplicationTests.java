@@ -1,9 +1,8 @@
 package com.example.demo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals; // 현재 예제에서는 사용되지 않고 있습니다.
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -14,22 +13,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SbbApplicationTests {
 	
 	@Autowired
-	private QuestionRepository questionRepository;
+	private QuestionRepository questionRepository; // 현재 예제에서는 사용되지 않고 있습니다.
 	
 	@Autowired
 	private AnswerRepository answerRepository;
 	
 	@Test
 	void testJpa() {
-		Optional<Question> oq = this.questionRepository.findById(2);
-		assertTrue(oq.isPresent());
-		Question q = oq.get();
+		Optional<Answer> oa = this.answerRepository.findById(1);
+		assertTrue(oa.isPresent());
+		Answer a = oa.get();
+		assertEquals(2, a.getQuestion().getId());
 		
-		Answer a = new Answer();
-		a.setContent("네 자동으로 생성됩니다.");
-		a.setQuestion(q);
-		a.setCreateDate(LocalDateTime.now());
-		this.answerRepository.save(a);
 	}
 
 }
